@@ -15464,8 +15464,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }, (index * DANCE_TIME) / 5);
     });
   }
-  //enter the answer
-  function triggerEnterKey() {
-    document.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
-  }
 });

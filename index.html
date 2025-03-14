@@ -61,7 +61,7 @@
   
 <!-- Button container to hold both buttons -->
 <div class="button-container">
-  <button onclick="triggerEnterKey()" class="game-button">Enter</button>
+  <button onclick="document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }))" class="game-button">Enter</button>
   <button onclick="location.reload()" class="game-button">Restart Game</button>
 </div>
 
