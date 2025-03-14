@@ -167,13 +167,18 @@ body {
 }
 
 /*refresh button css*/
-.refresh-button {
-  display: block;
-  margin: 1em auto;
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1em; /* Adds even spacing between buttons */
+  margin-top: 1em;
+}
+
+.game-button {
   padding: 0.75em 1.5em;
   font-size: 1rem;
   font-weight: bold;
-  background-color: hsl(204, 70%, 50%);
+  background-color: hsl(25, 85%, 55%); /* Warm orange color */
   color: white;
   border: none;
   border-radius: 8px;
@@ -182,12 +187,12 @@ body {
   text-align: center;
 }
 
-.refresh-button:hover {
-  background-color: hsl(204, 70%, 40%);
+.game-button:hover {
+  background-color: hsl(25, 85%, 45%);
   transform: scale(1.05);
 }
 
-.refresh-button:active {
-  background-color: hsl(204, 70%, 30%);
+.game-button:active {
+  background-color: hsl(25, 85%, 35%);
   transform: scale(0.95);
 }
