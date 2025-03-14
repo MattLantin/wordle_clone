@@ -1,0 +1,193 @@
+/* Global styles for all elements */
+*, *::after, *::before {
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+/* Body styles - sets background, layout, and typography */
+body {
+  background-color: hsl(240, 3%, 7%);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1em;
+  font-size: clamp(.5rem, 2.5vmin, 1.5rem);
+}
+
+/* Grid layout for the guess tiles */
+.guess-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  flex-grow: 1;
+  grid-template-columns: repeat(5, 4em);
+  grid-template-rows: repeat(6, 4em);
+  gap: .25em;
+  margin-bottom: 1em;
+}
+
+/* Styles for each tile in the word grid */
+.tile {
+  font-size: 2em;
+  color: white;
+  border: .05em solid hsl(240, 2%, 23%);
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  transition: transform 250ms linear;
+}
+
+/* Active tile state */
+.tile[data-state="active"] {
+  border-color: hsl(200, 1%, 34%);
+}
+
+/* Incorrect letter tile */
+.tile[data-state="wrong"] {
+  border: none;
+  background-color: hsl(240, 2%, 23%);
+}
+
+/* Correct letter but wrong position */
+.tile[data-state="wrong-location"] {
+  border: none;
+  background-color: hsl(49, 51%, 47%);
+}
+
+/* Correct letter and correct position */
+.tile[data-state="correct"] {
+  border: none;
+  background-color: hsl(115, 29%, 43%);
+}
+
+/* Animation for shaking incorrect tiles */
+.tile.shake {
+  animation: shake 250ms ease-in-out;
+}
+
+/* Animation for dancing tiles when the game is won */
+.tile.dance {
+  animation: dance 500ms ease-in-out;
+}
+
+/* Flip animation for revealing tile states */
+.tile.flip {
+  transform: rotateX(90deg);
+}
+
+/* Keyframes for the shake effect */
+@keyframes shake {
+  10% {
+    transform: translateX(-5%);
+  }
+
+  30% {
+    transform: translateX(5%);
+  }
+
+  50% {
+    transform: translateX(-7.5%);
+  }
+
+  70% {
+    transform: translateX(7.5%);
+  }
+
+  90% {
+    transform: translateX(-5%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Keyframes for the dance animation */
+@keyframes dance {
+  20% {
+    transform: translateY(-50%);
+  }  
+
+  40% {
+    transform: translateY(5%);
+  }  
+
+  60% {
+    transform: translateY(-25%);
+  }  
+
+  80% {
+    transform: translateY(2.5%);
+  }  
+
+  90% {
+    transform: translateY(-5%);
+  }  
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Alert container positioning */
+.alert-container {
+  position: fixed;
+  top: 10vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Alert message styles */
+.alert {
+  pointer-events: none;
+  background-color: hsl(204, 7%, 85%);
+  padding: .75em;
+  border-radius: .25em;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+  margin-bottom: .5em;
+}
+
+/* Ensures spacing between multiple alerts */
+.alert:last-child {
+  margin-bottom: 0;
+}
+
+/* Hide alert message with fade-out effect */
+.alert.hide {
+  opacity: 0;
+}
+
+/*refresh button css*/
+.refresh-button {
+  display: block;
+  margin: 1em auto;
+  padding: 0.75em 1.5em;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: hsl(204, 70%, 50%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  text-align: center;
+}
+
+.refresh-button:hover {
+  background-color: hsl(204, 70%, 40%);
+  transform: scale(1.05);
+}
+
+.refresh-button:active {
+  background-color: hsl(204, 70%, 30%);
+  transform: scale(0.95);
+}
