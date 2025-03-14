@@ -15281,7 +15281,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Determine the target word based on the current date
   const chosenWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
-
+  console.log("The answer is:", chosenWord);
 
   // Start listening for keyboard input
   enableInput();
